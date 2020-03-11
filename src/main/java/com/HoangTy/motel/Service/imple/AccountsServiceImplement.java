@@ -17,7 +17,8 @@ import com.HoangTy.motel.table.User;
 
 import request.DeleteMotel;
 import request.InsertMotel;
-import request.UpdateMotel;
+import request.MotelReq;
+
 import request.UserReq;
 import request.UserReq1;
 import request.UserReq2;
@@ -36,6 +37,18 @@ public class AccountsServiceImplement implements AccoutsService {
 		// TODO Auto-generated method stub
 		return accoutsRepository.findById(id).get();
 	}
+	
+	
+	@Override
+	public Motel getAcount1(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+				//accoutsRepository.findById(id).get();
+	}
+	
+	
+	
+	
 
 	@Override
 	public User create(UserReq userReq) {
@@ -51,15 +64,30 @@ public class AccountsServiceImplement implements AccoutsService {
 
 	@Override
 	@Transactional
-	public User update(UserReq1 userReq1) {
-		User user = getAcount(userReq1.getId());
-		user.setEmail(userReq1.getEmail());
-		user.setFullName(userReq1.getFullName());
-		user.setPassWord(userReq1.getPassWord());
+	public User  update(Long id, UserReq userReq) {
+		User user = getAcount(id);
+		user.setEmail(userReq.getEmail());
+		user.setFullName(userReq.getFullName());
+		user.setPassWord(userReq.getPassWord());
 		return user;
 	}
 
-	public Motel update1(UpdateMotel updateMotel) { // TODO Auto-generated method
+	@Override
+	@Transactional
+	public User delete(UserReq2 userReq2) 
+	{
+		User user = getAcount(userReq2.getId());
+		accoutsRepository.delete(user);
+		return user;
+	}
+	
+	
+	@Override
+	@Transactional
+	public Motel update1(MotelReq updateMotel) { // TODO Auto-generated method
+		
+		
+		
 		return null;
 	}
 
@@ -73,11 +101,7 @@ public class AccountsServiceImplement implements AccoutsService {
 		return null;
 	}
 
-	@Override
-	public User delete(UserReq2 userReq2) 
-	{
-		
-		return null;
-	}
+	
+
 
 }
