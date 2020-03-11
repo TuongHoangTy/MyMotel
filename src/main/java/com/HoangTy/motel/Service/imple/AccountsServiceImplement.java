@@ -11,6 +11,8 @@ import com.HoangTy.motel.Service.AccoutsService;
 import com.HoangTy.motel.repository.AccoutsRepository;
 import com.HoangTy.motel.table.User;
 
+import request.UserReq;
+
 
 @Service
 public class AccountsServiceImplement implements AccoutsService {
@@ -25,6 +27,17 @@ public class AccountsServiceImplement implements AccoutsService {
 	public User getAcount(Long id) {
 		// TODO Auto-generated method stub
 		return accoutsRepository.findById(id).get();
+	}
+
+	@Override
+	public User create(UserReq userReq) {
+		User user = new User();
+		user.setEmail(userReq.getEmail());
+		user.setFullName(userReq.getFullName());
+		user.setPassWord(userReq.getPassWord());
+		User pre = accoutsRepository.save(user);
+		
+		return pre;
 	}
 
 }

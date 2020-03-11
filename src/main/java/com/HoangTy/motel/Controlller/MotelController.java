@@ -18,19 +18,10 @@ public class MotelController {
 
 	@Autowired
 	private MotelService motelService;
-	
-	@Autowired
-	private AccoutsService accoutsService;;
 
 	@GetMapping("/motel")
 	public List<Motel> getMotels() {
 		return motelService.getMotels();
-
-	}
-
-	@GetMapping("/account")
-	public List<AccountsRes> getAcounts() {
-		return accoutsService.getAcounts();
 	}
 
 }
