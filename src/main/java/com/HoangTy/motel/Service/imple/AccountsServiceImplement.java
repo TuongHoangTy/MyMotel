@@ -3,6 +3,8 @@ package com.HoangTy.motel.Service.imple;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import com.HoangTy.motel.repository.AccoutsRepository;
 import com.HoangTy.motel.table.User;
 
 import request.UserReq;
+import request.UserReq1;
+import request.UserReq2;
 
 
 @Service
@@ -39,5 +43,30 @@ public class AccountsServiceImplement implements AccoutsService {
 		
 		return pre;
 	}
+	
+	/*@Override
+	@Transactional
+	public User update(UserReq1 userReq1)
+	{
+		User user=  getAcount(userReq1.getId());	
+		user.setEmail(userReq1.getEmail());
+		user.setFullName(userReq1.getFullName());
+		user.setPassWord(userReq1.getPassWord());
+		return user;
+	}*/
+	
 
+/*	@Override
+	public User delete(UserReq2 userReq2)
+	{
+		User user= getAcount(userReq2.getId());
+		User pre= accoutsRepository.delete(user);
+		return pre;
+		
+		
+		
+		
+	}
+	
+*/
 }
