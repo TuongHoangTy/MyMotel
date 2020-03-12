@@ -43,22 +43,11 @@ public class UserController {
 		return accoutsService.update(id, userReq);
 	}
 
-	/*
-	 * @PostMapping public User create(@RequestBody UserReq2 userReq2) { return
-	 * accoutsService.delete(userReq2); }
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @PostMapping public Motel insert(@RequestBody InsertMotel insertMotel) {
-	 * return accoutsService.insert1(insertMotel);
-	 * 
-	 * }
-	 * 
-	 * @PostMapping public Motel update(@RequestBody UpdateMotel updatetMotel) {
-	 * return accoutsService.update1(updatetMotel);
-	 * 
-	 * }
-	 */
+	@PostMapping
+	public User delete(@PathVariable UserReq2 userReq2)
+	{
+		return accoutsService.delete(userReq2);
+	}
+	
 
 }

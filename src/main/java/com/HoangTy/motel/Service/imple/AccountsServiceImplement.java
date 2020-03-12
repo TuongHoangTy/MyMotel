@@ -59,4 +59,6 @@ public class AccountsServiceImplement implements AccoutsService {
 		accoutsRepository.delete(user);
 		return user;
 	}
+
+	
 }

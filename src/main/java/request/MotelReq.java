@@ -7,4 +7,5 @@ public class MotelReq {
 	private String name;
 	private Long manageId;
 	private Long addressId;
+	
 }

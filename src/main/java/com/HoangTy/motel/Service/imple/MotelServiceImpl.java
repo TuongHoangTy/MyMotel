@@ -2,6 +2,8 @@ package com.HoangTy.motel.Service.imple;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ import com.HoangTy.motel.repository.MotelRepo;
 import com.HoangTy.motel.table.Address;
 import com.HoangTy.motel.table.Manager;
 import com.HoangTy.motel.table.Motel;
-
+import request.DeleteMotel;
 import request.MotelReq;
 
 @Service
@@ -39,7 +41,6 @@ public class MotelServiceImpl implements MotelService{
 		//find Address
 		Address address = addressRepo.findById(motelReq.getAddressId()).get();
 		
-		
 		//find Manager
 		Manager manager = managerRepo.findById(motelReq.getManageId()).get();
 		
@@ -49,26 +50,36 @@ public class MotelServiceImpl implements MotelService{
 		motel.setManager(manager);
 		
 		Motel pre  = motelRepo.save(motel);
-		
 		return pre;
 	}
 
+	
+
+
+
 	@Override
 	public Motel deleteMotel(Long motelId) {
+		return motelRepo.findById(motelId).get();
+	}
+
+	
+
+	@Override
+	public Motel GetMotel(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Motel updateMotel(Long motelId, MotelReq motelReq) {
+	@Transactional
+	public Motel updateMotel(MotelReq motelReq) {
 		// TODO Auto-generated method stub
+		
+		//Motel motel=motelRepo.findById)
+		
 		return null;
 	}
 
-	@Override
-	public Motel getMotel(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }
