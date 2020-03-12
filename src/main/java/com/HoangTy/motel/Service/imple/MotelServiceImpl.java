@@ -15,21 +15,21 @@ import com.HoangTy.motel.table.Address;
 import com.HoangTy.motel.table.Manager;
 import com.HoangTy.motel.table.Motel;
 import request.DeleteMotel;
+import request.InsertMotel;
 import request.MotelReq;
 
 @Service
-public class MotelServiceImpl implements MotelService{
+public class MotelServiceImpl implements MotelService {
 
 	@Autowired
 	private MotelRepo motelRepo;
-	
-	@Autowired
-	private AddressRepo  addressRepo;
 
 	@Autowired
-	private ManagerRepo  managerRepo;
-	
-	
+	private AddressRepo addressRepo;
+
+	@Autowired
+	private ManagerRepo managerRepo;
+
 	@Override
 	public List<Motel> getMotels() {
 		// TODO Auto-generated method stub
@@ -38,31 +38,25 @@ public class MotelServiceImpl implements MotelService{
 
 	@Override
 	public Motel createMotel(MotelReq motelReq) {
-		//find Address
+		// find Address
 		Address address = addressRepo.findById(motelReq.getAddressId()).get();
-		
-		//find Manager
-		Manager manager = managerRepo.findById(motelReq.getManageId()).get();
-		
+
+		// find Manager
+		Manager manager = managerRepo.findById(motelReq.getManagerId()).get();
+
 		Motel motel = new Motel();
 		motel.setName(motelReq.getName());
 		motel.setAddress(address);
 		motel.setManager(manager);
-		
-		Motel pre  = motelRepo.save(motel);
+
+		Motel pre = motelRepo.save(motel);
 		return pre;
 	}
-
-	
-
-
 
 	@Override
 	public Motel deleteMotel(Long motelId) {
 		return motelRepo.findById(motelId).get();
 	}
-
-	
 
 	@Override
 	public Motel GetMotel(Long id) {
@@ -72,14 +66,16 @@ public class MotelServiceImpl implements MotelService{
 
 	@Override
 	@Transactional
-	public Motel updateMotel(MotelReq motelReq) {
+	public Motel updateMotel(Long id, MotelReq motelReq) {
 		// TODO Auto-generated method stub
-		
-		//Motel motel=motelRepo.findById)
-		
-		return null;
+		Motel motel = GetMotel(id);
+		Address address = addressRepo.findById(motelReq.getAddressId()).get();
+		Manager manager = managerRepo.findById(motelReq.getManagerId()).get();
+		motel.setName(motelReq.getName());
+		motel.setAddress(address);
+		motel.setManager(manager);
+		Motel pre = motelRepo.save(motel);
+		return pre;
 	}
-
-
 
 }

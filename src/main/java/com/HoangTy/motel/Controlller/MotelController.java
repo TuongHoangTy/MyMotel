@@ -18,6 +18,7 @@ import com.HoangTy.motel.table.Motel;
 import com.HoangTy.motel.table.User;
 
 import request.MotelReq;
+
 import request.UserReq;
 
 @RestController
@@ -45,8 +46,8 @@ public class MotelController {
 	
 	
 	@PutMapping("/{id}")
-	public Motel update(@PathVariable Long id, @RequestBody MotelReq motelReq) {
-		return motelService.updateMotel(motelReq) ;
+	public Motel updateMotel(@PathVariable Long id, @RequestBody MotelReq motelReq) {
+		return motelService.updateMotel(id,motelReq) ;
 	}
 	
 	

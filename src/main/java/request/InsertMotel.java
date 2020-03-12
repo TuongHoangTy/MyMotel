@@ -10,7 +10,7 @@ import lombok.Data;
 public class InsertMotel {
 	private Long id;
 	private String name;
-	private Manager manager;
-	private Address address;
+	private Long manager;
+	private Long address;
 
 }
