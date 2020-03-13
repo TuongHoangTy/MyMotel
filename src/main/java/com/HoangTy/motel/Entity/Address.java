@@ -1,4 +1,4 @@
-package com.HoangTy.motel.table;
+package com.HoangTy.motel.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +22,6 @@ public class Address {
 	private String lat;
 	@Column
 	private String log;
-	
 	@ManyToOne
 	private Ward ward;
 }

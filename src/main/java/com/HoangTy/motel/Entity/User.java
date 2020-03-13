@@ -1,4 +1,4 @@
-package com.HoangTy.motel.table;
+package com.HoangTy.motel.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,11 +8,11 @@ import lombok.Data;
 
 @Data
 @Entity
-public class City {
+public class User {
 	@Id
 	@GeneratedValue
-	private int id;
-
-	private String name;
-
+	private Long id;
+	private String fullName;
+	private String passWord;
+	private String email;
 }

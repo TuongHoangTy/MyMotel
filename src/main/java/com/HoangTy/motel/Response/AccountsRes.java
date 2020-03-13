@@ -1,6 +1,6 @@
 package com.HoangTy.motel.Response;
 
-import com.HoangTy.motel.table.User;
+import com.HoangTy.motel.Entity.User;
 
 import lombok.Data;
 
@@ -8,21 +8,15 @@ import lombok.Data;
 public class AccountsRes {
 	private Long id;
 	private String passWord;
-	
-    
-    public static AccountsRes fromModel(User account) {
-    	
-    	//AcountRes acountRes = new AcountRes();
-    	//acountRes.setFirstName(account.getFirstName());
-    	//acountRes.setEmail(account.getEmail());
-    	//acountRes.setId(account.getId());
-    	
-    	//return acountRes;
-    	
-    	AccountsRes accout= new AccountsRes();
-    	accout.setId(account.getId());
-    	accout.setPassWord(account.getPassWord());
-    	return accout;
-    }
+	private String name;
+	private String email;
 
+	public static AccountsRes fromModel(User account) {
+		AccountsRes accountsRes = new AccountsRes();
+		accountsRes.setId(account.getId());
+		accountsRes.setPassWord(account.getPassWord());
+		accountsRes.setEmail(account.getEmail());
+		accountsRes.setName(account.getFullName());
+		return accountsRes;
+	}
 }
