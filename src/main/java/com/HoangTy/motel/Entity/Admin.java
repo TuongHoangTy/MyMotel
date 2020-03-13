@@ -1,4 +1,4 @@
-package com.HoangTy.motel.table;
+package com.HoangTy.motel.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,9 +12,7 @@ import lombok.Data;
 public class Admin {
 	@Id
 	private Long id;
-
 	private String phone;
-	
 	@MapsId
 	@OneToOne
 	private User user;

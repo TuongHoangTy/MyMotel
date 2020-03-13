@@ -1,7 +1,4 @@
-package request;
-
-import com.HoangTy.motel.table.Address;
-import com.HoangTy.motel.table.Manager;
+package com.HoangTy.motel.Request;
 
 import lombok.Data;
 

@@ -3,51 +3,38 @@ package com.HoangTy.motel.Controlller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.HoangTy.motel.Response.AccountsRes;
-import com.HoangTy.motel.Service.AccoutsService;
-import com.HoangTy.motel.table.Motel;
-import com.HoangTy.motel.table.User;
+import com.HoangTy.motel.Service.UserService;
+import com.HoangTy.motel.Entity.User;
 
-import request.InsertMotel;
-import request.UserReq;
-import request.UserReq1;
-import request.UserReq2;
+import com.HoangTy.motel.Request.UserReq;
 
 @RestController
-@RequestMapping("account")
+@RequestMapping("user")
 public class UserController {
 
-	@Autowired
-	private AccoutsService accoutsService;;
+    @Autowired
+    private UserService userService;
 
-	@GetMapping
-	public List<AccountsRes> getAcounts() {
-		return accoutsService.getAcounts();
-	}
+    @GetMapping
+    public List<AccountsRes> getUsers() {
+        return userService.getUsers();
+    }
 
-	@PostMapping
-	public User create(@RequestBody UserReq userReq) {
-		return accoutsService.create(userReq);
-	}
+    @PostMapping
+    public User create(@RequestBody UserReq userReq) {
+        return userService.create(userReq);
+    }
 
-	@PutMapping("/{id}")
-	public User update(@PathVariable Long id, @RequestBody UserReq userReq) {
-		return accoutsService.update(id, userReq);
-	}
+    @PutMapping("/{id}")
+    public User update(@PathVariable Long id, @RequestBody UserReq userReq) {
+        return userService.update(id, userReq);
+    }
 
-	@PostMapping
-	public User delete(@PathVariable UserReq2 userReq2)
-	{
-		return accoutsService.delete(userReq2);
-	}
-	
-
+    @DeleteMapping("/{id}")
+    public User delete(@PathVariable Long id) {
+        return userService.delete(id);
+    }
 }

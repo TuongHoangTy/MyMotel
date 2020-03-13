@@ -1,4 +1,4 @@
-package com.HoangTy.motel.table;
+package com.HoangTy.motel.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,15 +7,18 @@ import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
-@Entity
 @Data
-public class District {
+@Entity
+public class Motel {
 	@Id
 	@GeneratedValue
-	private int id;
-
+	private Long id;
+	
 	private String name;
-
+	
 	@ManyToOne
-	private City city;
+	private Manager manager;
+	
+	@ManyToOne
+	private Address address;
 }

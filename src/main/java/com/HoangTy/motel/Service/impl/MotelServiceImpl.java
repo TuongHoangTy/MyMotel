@@ -1,4 +1,4 @@
-package com.HoangTy.motel.Service.imple;
+package com.HoangTy.motel.Service.impl;
 
 import java.util.List;
 
@@ -8,15 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.HoangTy.motel.Service.MotelService;
-import com.HoangTy.motel.repository.AddressRepo;
-import com.HoangTy.motel.repository.ManagerRepo;
-import com.HoangTy.motel.repository.MotelRepo;
-import com.HoangTy.motel.table.Address;
-import com.HoangTy.motel.table.Manager;
-import com.HoangTy.motel.table.Motel;
-import request.DeleteMotel;
-import request.InsertMotel;
-import request.MotelReq;
+import com.HoangTy.motel.Repository.AddressRepo;
+import com.HoangTy.motel.Repository.ManagerRepo;
+import com.HoangTy.motel.Repository.MotelRepo;
+import com.HoangTy.motel.Entity.Address;
+import com.HoangTy.motel.Entity.Manager;
+import com.HoangTy.motel.Entity.Motel;
+import com.HoangTy.motel.Request.MotelReq;
 
 @Service
 public class MotelServiceImpl implements MotelService {

@@ -1,10 +1,11 @@
 package com.HoangTy.motel.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.HoangTy.motel.Entity.Manager;
 import org.springframework.stereotype.Repository;
 
+import com.HoangTy.motel.Entity.User;
+
+
 @Repository
-public interface ManagerRepo  extends JpaRepository<Manager, Long>{
+public interface UserRepository extends JpaRepository<User, Long> {
 }
